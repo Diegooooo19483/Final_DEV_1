@@ -6,11 +6,19 @@
 
 <form action="/crear-jugador" method="post">
 
-    <label>Nombre:</label>
+    <label>Nombre completo:</label>
     <input type="text" name="nombre" required>
+
+    <label>Nacionalidad:</label>
+    <input type="text" name="nacionalidad" required>
 
     <label>Edad:</label>
     <input type="number" name="edad" required>
+
+    <div class="form-group">
+        <label for="numero_camiseta">Número *</label>
+        <input type="number" id="numero_camiseta" name="numero_camiseta" min="1" max="99" required>
+    </div>
 
     <label>Posición:</label>
     <select name="posicion" required>
@@ -18,6 +26,27 @@
             <option value="{{ p.value }}">{{ p.value }}</option>
         {% endfor %}
     </select>
+
+
+    <h1>Datos deportivos</h1>
+
+    <label>Altura (Cm) :</label>
+    <input type="number" name="altura" value="1.50" required>
+
+     <label>peso (Kg):</label>
+    <input type="number" name="peso" value="50" required>
+
+    <label>Pie dominante:</label>
+    <input type="number" name="pie" required>
+
+    <label>Posicion:</label>
+    <input type="number" name="pie" required>
+
+    <label>Valor de Mercado (Pesos) :</label>
+    <input type="number" name="valormer" value="1000" required>
+
+    <label>Año de ingreso al club () :</label>
+    <input type="number" name="valormer" value="1000" required>
 
     <label>Estado:</label>
     <select name="estado" required>

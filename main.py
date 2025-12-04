@@ -61,15 +61,18 @@ def form_partido(request: Request):
 @app.post("/crear-jugador")
 def crear_jugador(
     nombre: str = Form(...),
+    nacionalidad: str = Form(...),
     edad: int = Form(...),
     posicion: str = Form(...),
     estado: str = Form(...),
+    ncamiseta: int = Form(0),
     goles: int = Form(0),
     asistencias: int = Form(0),
     db: Session = Depends(get_db)
 ):
     jugador = JugadorDB(
         nombre=nombre,
+        nacionalidad=nacionalidad,
         edad=edad,
         posicion=posicion,
         estado=estado,

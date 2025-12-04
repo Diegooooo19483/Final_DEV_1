@@ -7,11 +7,12 @@ class JugadorDB(Base):
 
     id = Column(Integer, primary_key=True, index=True)
     nombre = Column(String)
+    nacionalidad = Column(String)
+    Ncamiseta = Column(Integer)
     edad = Column(Integer)
     posicion = Column(String)
     estado = Column(String)
 
-    # 🟢 ESTADÍSTICAS
     goles = Column(Integer, default=0)
     asistencias = Column(Integer, default=0)
 
