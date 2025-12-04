@@ -10,7 +10,7 @@ class JugadorDB(Base):
     nombre = Column(String)
     nacionalidad = Column(String)
     edad = Column(Integer)
-    ncamiseta = Column(Integer)
+    num = Column(Integer)
 
     altura = Column(Integer)
     peso = Column(Integer)
