@@ -1,0 +1,11 @@
+<h1>Partidos</h1>
+
+<ul>
+{% for p in partidos %}
+    <li>
+        VS {{ p.rival }} → {{ p.goles_favor }} - {{ p.goles_contra }}
+    </li>
+{% endfor %}
+</ul>
+
+<a href="/">Volver</a>

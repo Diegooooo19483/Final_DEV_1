@@ -1,0 +1,14 @@
+<h1>Jugadores</h1>
+
+<ul>
+{% for j in jugadores %}
+    <li>
+        <strong>{{ j.nombre }}</strong> ({{ j.posicion }})<br>
+        Estado: {{ j.estado }}<br>
+        Goles: {{ j.estadisticas.goles }} |
+        Asistencias: {{ j.estadisticas.asistencias }}
+    </li>
+{% endfor %}
+</ul>
+
+<a href="/">Volver</a>
