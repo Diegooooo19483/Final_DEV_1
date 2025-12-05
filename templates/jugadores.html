@@ -1,14 +1,18 @@
+{% extends "base.html" %}
+{% block title %}Jugadores{% endblock %}
+
+{% block content %}
 <h1>Jugadores</h1>
 
-<ul>
 {% for j in jugadores %}
-    <li>
-        <strong>{{ j.nombre }}</strong> ({{ j.posicion }})<br>
-        Estado: {{ j.estado }}<br>
-        Goles: {{ j.estadisticas.goles }} |
-        Asistencias: {{ j.estadisticas.asistencias }}
-    </li>
-{% endfor %}
-</ul>
+<div class="card">
+    <strong>{{ j.nombre }}</strong> ({{ j.edad }} años)<br>
+    Posición: {{ j.posicion }}<br>
+    Estado: {{ j.estado }}<br>
+    Goles: {{ j.goles }} | Asistencias: {{ j.asistencias }}<br><br>
 
-<a href="/">Volver</a>
+    <a class="btn" href="/eliminar-jugador/{{ j.id }}">Eliminar</a>
+</div>
+{% endfor %}
+
+{% endblock %}

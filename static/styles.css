@@ -1,0 +1,16 @@
+.navbar {
+    background: #101f33;
+    padding: 10px;
+    text-align: center;
+}
+
+.navbar a {
+    color: white;
+    margin: 10px;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.navbar a:hover {
+    color: #00ffcc;
+}

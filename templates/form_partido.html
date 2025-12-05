@@ -1,15 +1,26 @@
+{% extends "base.html" %}
+{% block title %}Registrar Partido{% endblock %}
+
+{% block content %}
 <h1>Registrar Partido</h1>
 
-<form method="post">
+<form action="/crear-partido" method="post">
+    <label>Local:</label>
+    <input type="text" name="local" required>
 
-    Rival: <input type="text" name="rival"><br>
+    <label>Visitante:</label>
+    <input type="text" name="visitante" required>
 
-    Goles a favor: <input type="number" name="goles_favor"><br>
+    <label>Goles Local:</label>
+    <input type="number" name="goles_local" required>
 
-    Goles en contra: <input type="number" name="goles_contra"><br>
+    <label>Goles Visitante:</label>
+    <input type="number" name="goles_visitante" required>
 
-    <button type="submit">Guardar partido</button>
+    <label>Fecha:</label>
+    <input type="date" name="fecha" required>
 
+    <button type="submit">Guardar</button>
 </form>
 
-<a href="/">Volver</a>
+{% endblock %}

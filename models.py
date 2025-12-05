@@ -1,26 +1,27 @@
-from pydantic import BaseModel
-from utils.positions import Position
-from utils.states import States
+from sqlalchemy import Column, Integer, String
+from database import Base
 
 
-class Estadistica(BaseModel):
-    goles: int
-    asistencias: int
-    amarillas: int
-    rojas: int
+class JugadorDB(Base):
+    __tablename__ = "jugadores"
+
+    id = Column(Integer, primary_key=True, index=True)
+    nombre = Column(String)
+    edad = Column(Integer)
+    posicion = Column(String)
+    estado = Column(String)
+
+    # 🟢 ESTADÍSTICAS
+    goles = Column(Integer, default=0)
+    asistencias = Column(Integer, default=0)
 
 
-class Jugador(BaseModel):
-    id: int
-    nombre: str
-    edad: int
-    posicion: Position
-    estado: States
-    estadisticas: Estadistica
+class PartidoDB(Base):
+    __tablename__ = "partidos"
 
-
-class Partido(BaseModel):
-    id: int
-    rival: str
-    goles_favor: int
-    goles_contra: int
+    id = Column(Integer, primary_key=True, index=True)
+    local = Column(String)
+    visitante = Column(String)
+    goles_local = Column(Integer)
+    goles_visitante = Column(Integer)
+    fecha = Column(String)

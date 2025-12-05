@@ -1,34 +1,38 @@
+{% extends "base.html" %}
+{% block title %}Registrar Jugador{% endblock %}
+
+{% block content %}
 <h1>Registrar Jugador</h1>
 
-<form method="post">
+<form action="/crear-jugador" method="post">
 
-    Nombre: <input type="text" name="nombre" required><br>
+    <label>Nombre:</label>
+    <input type="text" name="nombre" required>
 
-    Edad: <input type="number" name="edad" required><br>
+    <label>Edad:</label>
+    <input type="number" name="edad" required>
 
-    Posición:
-    <select name="posicion">
+    <label>Posición:</label>
+    <select name="posicion" required>
         {% for p in posiciones %}
-            <option value="{{ p.name }}">{{ p.value }}</option>
+            <option value="{{ p.value }}">{{ p.value }}</option>
         {% endfor %}
-    </select><br>
+    </select>
 
-    Estado:
-    <select name="estado">
+    <label>Estado:</label>
+    <select name="estado" required>
         {% for e in estados %}
-            <option value="{{ e.name }}">{{ e.value }}</option>
+            <option value="{{ e.value }}">{{ e.value }}</option>
         {% endfor %}
-    </select><br>
+    </select>
 
-    <h3>Estadísticas</h3>
+    <label>Goles:</label>
+    <input type="number" name="goles" value="0">
 
-    Goles: <input type="number" name="goles"><br>
-    Asistencias: <input type="number" name="asistencias"><br>
-    Amarillas: <input type="number" name="amarillas"><br>
-    Rojas: <input type="number" name="rojas"><br>
+    <label>Asistencias:</label>
+    <input type="number" name="asistencias" value="0">
 
-    <button type="submit">Guardar jugador</button>
+    <button type="submit">Guardar</button>
 
 </form>
-
-<a href="/">Volver</a>
+{% endblock %}

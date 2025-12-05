@@ -1,14 +1,14 @@
-<h1>Sigmotoa FC</h1>
+{% extends "base.html" %}
+{% block title %}Inicio{% endblock %}
 
-<p>Total jugadores: {{ jugadores }}</p>
-<p>Total partidos: {{ partidos }}</p>
+{% block content %}
+<h1>Panel Deportivo</h1>
 
-<hr>
+<div class="counter">Jugadores: {{ jugadores }}</div>
+<div class="counter">Partidos: {{ partidos }}</div>
+<div class="counter">Goles: {{ goles }}</div>
+<div class="counter">Asistencias: {{ asistencias }}</div>
 
-<a href="/jugadores">Ver jugadores</a><br>
-<a href="/partidos">Ver partidos</a><br>
+<p>Bienvenido al sistema oficial de Sigmotoa FC.</p>
 
-<hr>
-
-<a href="/form-jugador">Registrar jugador</a><br>
-<a href="/form-partido">Registrar partido</a>
+{% endblock %}
