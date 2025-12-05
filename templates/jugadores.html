@@ -4,25 +4,34 @@
 {% block content %}
 <h1>Jugadores</h1>
 
-{% for j in jugadores %}
-<div class="card">
-    <strong>{{ j.nombre }}</strong> ({{ j.edad }} años)<br>
-    Nacionalidad: {{ j.nacionalidad }}<br>
-    Número de camiseta: {{ j.ncamiseta }}<br>
+<div class="jugadores-list">
+    {% for j in jugadores %}
+    <div class="card">
+        <div class="card-header">
+            <h2>{{ j.nombre }}</h2>
+            <span class="edad">({{ j.edad }} años)</span>
+        </div>
+        <div class="card-body">
+            <p><strong>Nacionalidad:</strong> {{ j.nacionalidad }}</p>
+            <p><strong>Número de camiseta:</strong> {{ j.ncamiseta }}</p>
 
-    <label> Datos deportivos</label>
-    Altura (Cm): {{ j.altura }}<br>
-    Peso (Kg): {{ j.peso }}<br>
-    Pie dominante: {{ j.pie }}<br>
-    Posición: {{ j.posicion }}<br>
-    Fecha de ingreso: {{ j.ingreso }}<br>
-    Ingreso: {{ j.ingreso }}<br>
-    Valor de mercado: {{ j.valormer }}<br>
-    Estado: {{ j.estado }}<br>
-    Goles: {{ j.goles }} | Asistencias: {{ j.asistencias }}<br><br>
-
-    <a class="btn" href="/eliminar-jugador/{{ j.id }}">Eliminar</a>
+            <h3>Datos deportivos</h3>
+            <ul>
+                <li><strong>Altura:</strong> {{ j.altura }} cm</li>
+                <li><strong>Peso:</strong> {{ j.peso }} kg</li>
+                <li><strong>Pie dominante:</strong> {{ j.pie }}</li>
+                <li><strong>Posición:</strong> {{ j.posicion }}</li>
+                <li><strong>Fecha de ingreso:</strong> {{ j.ingreso }}</li>
+                <li><strong>Valor de mercado:</strong> ${{ j.valormer }}</li>
+                <li><strong>Estado:</strong> {{ j.estado }}</li>
+                <li><strong>Goles:</strong> {{ j.goles }} | <strong>Asistencias:</strong> {{ j.asistencias }}</li>
+            </ul>
+        </div>
+        <div class="card-footer">
+            <a class="btn btn-danger" href="/eliminar-jugador/{{ j.id }}" onclick="return confirm('¿Estás seguro de eliminar a este jugador?');">Eliminar</a>
+        </div>
+    </div>
+    {% endfor %}
 </div>
-{% endfor %}
 
 {% endblock %}
