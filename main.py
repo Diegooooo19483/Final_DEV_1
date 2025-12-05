@@ -54,6 +54,15 @@ def form_jugador(request: Request):
 @app.get("/form-partido")
 def form_partido(request: Request):
     return templates.TemplateResponse("form_partido.html", {"request": request})
+    
+
+@app.get("/form-asignar-goles/{jugador_id}")
+def form_asignar_goles(request: Request, jugador_id: int):
+    return templates.TemplateResponse("form_asignar_goles.html", {
+        "request": request,
+        "jugador_id": jugador_id
+    })
+
 
 
 # -------- CREAR JUGADOR --------
@@ -136,6 +145,20 @@ def ver_partidos(request: Request, db: Session = Depends(get_db)):
         "request": request,
         "partidos": partidos
     })
+
+
+@app.put("/asignar-goles/{jugador_id}")
+def asignar_goles(jugador_id: int, goles: int, db: Session = Depends(get_db)):
+    jugador = db.query(JugadorDB).filter(JugadorDB.id == jugador_id).first()
+    if not jugador:
+        raise HTTPException(status_code=404, detail="Jugador no encontrado")
+    
+    # Asignamos los goles al jugador
+    jugador.goles += goles
+    db.commit()
+    db.refresh(jugador)
+
+    return {"message": f"Goles asignados correctamente. El jugador {jugador.nombre} ahora tiene {jugador.goles} goles."}
 
 
 #ELIMINAR
